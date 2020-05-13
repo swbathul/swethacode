@@ -1,0 +1,36 @@
+Question:2
+============
+"Find out the shortest array and its length from the the array group.
+Ex:
+Given : { {1,2,3,4},{0,2,7},{4,12},{1,2,5,6}
+
+output:
+Shortest Array: {4,12}
+Length: 2"
+
+Answer:
+public class smallestArray {
+
+	public static void main(String[] args) {
+		
+		int[] fullarray[]=  { {1,2,3,4},{0,2,7},{4,12},{1,2,5,6} };
+		
+		int slen = 	fullarray[0].length;
+		for(int i=0;i<fullarray.length;i++) {
+
+			
+				 if(slen>fullarray[i].length) {
+					 
+					 slen = fullarray[i].length;
+						 
+					 
+					
+				 }
+				
+			 }			
+			
+				 System.out.println("the shortest array is:"+slen);
+		
+	}
+
+}
