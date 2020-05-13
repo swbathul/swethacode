@@ -1,0 +1,60 @@
+Question1:
+"Given an unsorted array A of size N, find a continuous sub-array which  sums up to S.
+
+For example if the input array is [ 12,7,29,6, 2, 11,4,8] and the  expected sum is 8, then there are two possibilities [6,2] and [8]
+if the expected sum is 19 there are two possibilites [12,7] and [6,2,11].  [11,8] is not a possibility since its not continous.
+"
+Answer:
+import java.util.HashMap;
+import java.util.Map;
+
+public class subArrayCount{
+
+	    
+	    static void subArraySum(int arr[], int n, int sum)  
+	    { 
+	        int curr_sum = arr[0], start = 0, i; 
+	        int x=0;
+	 
+	        for (i = 1; i <= n; i++)  
+	        { 
+	            
+	            while (curr_sum > sum && start < i-1) 
+	            { 
+	                curr_sum = curr_sum - arr[start]; 
+	                start++; 
+	            } 
+	              
+	            
+	            if (curr_sum == sum)  
+	            { 
+	                int p = i-1; 
+	                System.out.println("Sum found between indexes " + start 
+	                        + " and " + p); 
+	                x++;
+	        
+	            } 
+	              
+	            
+	            if (i < n) 
+	            curr_sum = curr_sum + arr[i]; 
+	              
+	        } 
+	  
+	        if(x==0) {
+	        System.out.println("No subarray found"); }
+	        else
+	        	System.out.println("No of subarray found:"+x);
+	        	
+	      
+	    } 
+	  
+	    public static void main(String[] args)  
+	    { 
+	        
+	        int arr[] = {12,7,29,6, 2, 11,4,8}; 
+	        int n = arr.length; 
+	        int sum = 19; 
+	        subArraySum(arr, n, sum); 
+	    } 
+	} 
