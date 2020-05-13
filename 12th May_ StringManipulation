@@ -1,0 +1,46 @@
+Question:1
+============
+String Manipulation Program - write a test case which would take a string as input like 'aabccd' and 
+print the maximum occurrence of a string in the format a=2,b=1,c=2,d=1
+
+Answer:
+import java.util.HashMap;
+import java.util.Map;
+
+public class manipulation{
+	
+
+	
+
+		public static void main(String[] args) {
+			String input= "aabccd";
+			if(input != null || input.length()>0)
+				letterRecCount(input);
+			
+		}
+
+		private static void letterRecCount(String word){
+			String alphabets = "abcdefghijklmnopqrstuvwxyz";
+			word = word.toLowerCase();
+
+			char[] strArray = word.toCharArray();
+			Map<Character, Long> alphacount = new HashMap<>();
+			
+			for(char ch: strArray){
+				long count = word.chars().filter(c -> c==ch).count();
+				alphacount.put(ch, count);
+			}
+			
+
+			// Iterate all alphabets and print count
+			char[] allAlphabets = alphabets.toCharArray();
+			
+			for(Character c : allAlphabets){
+				if(alphacount.get(c)!=null){
+					System.out.print(c+"="+alphacount.get(c)+", ");	
+				}
+			}
+
+		}
+		
+	}
