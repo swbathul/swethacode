@@ -1,1 +1,57 @@
+Question:4
+============
+"Print Pascal Triangle , print the value for the given co-orinates
+Ex: 
+1
+1 1
+1 2 1
+1 3 3 1
+
+Given  Co-Orinates(3,2) means answer should be : 2"
+
+Answer:
+import java.util.Scanner;
+
+public class Pascal {
+	    static int fact(int num) {
+		int factorial;
+
+		for(factorial = 1; num > 1; num--){
+			factorial *= num;
+		}
+		return factorial;
+	    }
+	    static int ncr(int n,int r) {
+		return fact(n) / ( fact(n-r) * fact(r) );
+	    }
+	    public static void main(String args[]){
+		int rows, i, j, x, y;
+
+		//getting number of rows from user
+		System.out.println("Enter number of rows:");
+		Scanner scanner = new Scanner(System.in);
+		rows = scanner.nextInt();
+		System.out.println("Enter co-ordinate1:");
+	    x = scanner.nextInt();
+	    System.out.println("Enter co-ordinate2:");
+	     y = scanner.nextInt();
+		scanner.close();
+
+		System.out.println("Pascal Triangle:");
+		
+		
+		for(i = 0; i < rows; i++) {
+			for(j = 0; j < rows-i; j++){
+				System.out.print(" ");
+			}
+			for(j = 0; j <= i; j++){
+				System.out.print(" "+ncr(i, j));
+			}
+			System.out.println();
+	 	}
+		System.out.println("Value for given co-ordinates("+x+","+y+") is:"+ncr(x, y));
+		
+	    }
+
+}
 
