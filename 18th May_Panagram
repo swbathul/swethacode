@@ -1,0 +1,53 @@
+How to find pangram- they will giving you a string. logic is to find all the alphabets should be there in that string, 
+irrespective of lowercase or upper case If all are present then it is pangram
+
+Answer:
+import java.util.Scanner;
+public class stringPanagram{
+		  
+	    
+	    public static boolean checkPangram(String str) 
+	    { 
+	        
+	        boolean[] mark = new boolean[26]; 
+	  
+	        int index = 0; 
+	  
+	            for (int i = 0; i < str.length(); i++) { 
+	            
+	            if ('A' <= str.charAt(i) && str.charAt(i) <= 'Z') 
+	                index = str.charAt(i) - 'A'; 
+	  
+	           
+	            else if ('a' <= str.charAt(i) && str.charAt(i) <= 'z') 
+	  
+	                index = str.charAt(i) - 'a'; 
+	  
+	            
+	            else
+	                continue; 
+	            mark[index] = true; 
+	        } 
+	  
+	        for (int i = 0; i <= 25; i++) 
+	            if (mark[i] == false) 
+	                return (false); 
+	  
+
+	        return (true); 
+	    } 
+	 
+	    public static void main(String[] args) 
+	    { 
+	    	String str;
+	    	System.out.print("Please enter a string"); 
+	    	Scanner scanner = new Scanner(System.in);
+			str = scanner.nextLine();
+			scanner.close();
+	  
+	        if (checkPangram(str) == true) 
+	            System.out.print(str + " is a pangram."); 
+	        else
+	            System.out.print(str + " is not a pangram."); 
+	    } 
+	} 
