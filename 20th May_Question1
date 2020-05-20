@@ -1,0 +1,55 @@
+Question:1
+===========
+Find out unique substring of given length of string.
+EX:
+Input - (aab,2) , Output - aa, ab
+Input- (aabc,2), Output - aa, ab,bc
+Input -(abc,1), Output - abc
+
+Answer:
+
+import java.util.*;
+
+ 
+
+public class uniqueSubstring{
+		  
+	
+	  
+	
+	static void result(String s, int n) 
+	{ 
+	  
+	    HashSet<String> st = new HashSet<String>(); 
+	  
+	    for (int i = 0; i < (int)s.length(); i++)  
+	    { 
+	        String ans = ""; 
+	        for (int j = i; j < (int)s.length(); j++) 
+	        { 
+	            ans += s.charAt(j); 
+	  
+	           
+	            if (ans.length()== n) 
+	            { 
+	  
+	                
+	                st.add(ans); 
+	                break; 
+	            } 
+	        } 
+	    } 
+	  
+	   
+	    for (String it : st) 
+	        System.out.print(it + " "); 
+	} 
+	public static void main(String[] args) 
+	{ 
+	    String s = "abca"; 
+	    int n = 1; 
+	  
+	    // Function calling 
+	    result(s, n); 
+	}
+  }
