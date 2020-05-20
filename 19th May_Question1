@@ -1,0 +1,34 @@
+Question:1
+===========
+Remove the duplicate words from the given Sentence.
+
+Ex:
+Input: Good day day bye bye 
+output: Good day bye
+
+input: greet the day user greet good day
+output:greet the day user good
+Answer:
+import java.util.Scanner;
+import java.util.*;
+import java.util.stream.*;
+ 
+
+public class RemoveDublicates{
+		  
+	   
+	 
+	    public static void main(String[] args) {
+	        
+	        String str;
+	        System.out.print("Please enter a sentence"); 
+	    	Scanner scanner = new Scanner(System.in);
+			str = scanner.nextLine();
+			scanner.close();
+	            
+	        str = Arrays.stream( str.split("\\s+")).distinct().collect(Collectors.joining(" ") );
+	        
+	        System.out.println(str);
+	 
+	    }
+	}
