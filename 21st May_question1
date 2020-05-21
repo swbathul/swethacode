@@ -1,0 +1,35 @@
+Find the weight of given String.
+(A-Z/a-z) we have 26 alphabetic, consider the position of a-z alphabets as 1-26. Based on that find the weight of the given String.
+Ex:
+Given String: Apple
+Output: 1+16+16+12+5 = 60
+
+Answer:
+import java.util.stream.IntStream;
+
+public class WordWeightage {
+
+	public static void main(String[] args) {
+		String input = "apple";
+
+		// remove space and convert to lowercase
+		input = input.replaceAll("\\s", "").toLowerCase();
+		char[] inputCharArray = input.toCharArray();
+		
+		int sum = 0;
+		for(char ch : inputCharArray){
+			if(ch >=97 && ch <=122){
+				int temp = ch - 97 +1;
+				System.out.println("ch-"+ch +" val-"+temp);
+				
+				sum +=temp;
+				
+			}
+			else{
+				System.out.println("Skipping char-"+ch);
+			}
+		}
+		System.out.println("Sum-"+sum);
+	}
+
+}
